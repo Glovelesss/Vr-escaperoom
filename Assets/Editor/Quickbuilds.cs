@@ -5,9 +5,9 @@ using UnityEngine;
 public static class QuickBuild
 {
     const string folder = "/home/mick/Documents/Builds/";
-    const string buildName = "BubbleBlaster";
+    const string buildName = "VR-EscapeRoom";
 
-    [MenuItem("Build/Build to Kantoor-Kantoor folder")]
+    [MenuItem("Build/Build to Builds folder")]
     public static void Build()
     {
         Directory.CreateDirectory(folder);
