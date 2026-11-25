@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "name": "VR",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "a4f60296-fc08-4dad-a5e0-983d075ebf42",
+            "actions": [
+                {
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "f8469915-b891-4c39-a332-ee656381c2ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d3198019-af93-4a05-b29f-64ada67666ce",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
