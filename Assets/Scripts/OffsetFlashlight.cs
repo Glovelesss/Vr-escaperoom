@@ -1,28 +1,47 @@
-using Unity.Tutorials.Editor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OffsetFlashlight : MonoBehaviour
 {
-    [SerializeField] GameObject flashlight;
-    void Start()
+    [SerializeField] private GameObject flashlight;
+    [SerializeField] private GameObject directionalLight;
+    [SerializeField] private InputActionProperty triggerAction;
+
+    private void OnEnable()
     {
-        
+        if (triggerAction.action != null)
+            triggerAction.action.Enable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (triggerAction.action != null)
+            triggerAction.action.Disable();
+    }
+
+    private void Start()
+    {
+        SetFlashlightState(false);
+    }
+
+    private void Update()
+    {
+        if (triggerAction.action != null && triggerAction.action.WasPressedThisFrame())
         {
-            flashlight.SetActive(!flashlight.activeSelf);
+            Debug.Log("XR trigger pressed");
+            if (flashlight != null)
+            {
+                SetFlashlightState(!flashlight.activeSelf);
+            }
         }
-        if (flashlight.activeSelf == true)
-        {
-              GameObject.Find("directional light").SetActive(true);
-        }
-        else if (flashlight.activeSelf == false)
-        {
-            GameObject.Find("directional light").SetActive(false);
-        }
+    }
+
+    private void SetFlashlightState(bool isOn)
+    {
+        if (flashlight != null)
+            flashlight.SetActive(isOn);
+
+        if (directionalLight != null)
+            directionalLight.SetActive(isOn);
     }
 }
